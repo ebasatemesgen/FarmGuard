@@ -3163,7 +3163,7 @@
 	#banner {
 		background-attachment: scroll,							fixed;
 		background-color: #666;
-		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
+		background-image: url("images/overlay.png"), url("../../images/DSC02205.jpg");
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
@@ -3301,7 +3301,7 @@
 				}
 
 /* CTA */
-
+/*
 	#cta {
 		background: #e89980;
 		color: #f9e6df;
@@ -3364,7 +3364,7 @@
 
 		#cta .formerize-placeholder {
 			color: rgba(255, 255, 255, 0.75) !important;
-		}
+		}*/
 
 /* Wide */
 
@@ -3898,6 +3898,20 @@
 	}
 
 
+/* Container box team list cursor style -Melody*/
+.icon-link {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.icon-link .icon {
+	transition: transform 0.2s ease;
+}
+
+.icon-link:hover .icon {
+	transform: scale(1.1); /* Optional: little bounce on hover */
+}
+
 
 /* This is added by Ebasa Temesgen for Team Members */
 .row.heading .team-heading h2 {
@@ -3953,6 +3967,111 @@ ul .team-heading{
 	display:inline-block;
 }
 
+/* Cropping get involved picture -Melody*/
+.half-cropped-vertical {
+    height: 50%;
+    max-height: 248px; /* adjust based on your needs */
+    overflow: hidden;
+    display: block;
+    position: relative;
+    }
+
+    .half-cropped-vertical img {
+    height: 200%;
+    width: auto;
+    transform: translateY(-48%); /* show top half */
+    }
+
+/*This if for Path planning lead style -Melody*/
+.name-pair {
+  display: flex;
+  gap: 10px; /* space between the names */
+  justify-content: center;
+  flex-wrap: wrap; /* allows them to stack on small screens */
+}
+
+.name-pair h3 {
+  margin: 0;
+  font-size: 1rem; /* optional: make the names a bit smaller if needed */
+}
+
+/*This is for the team members on each Team page -Melody*/
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.team-member {
+  display: flex;
+  align-items: flex-start;
+}
+
+.team-photo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.team-info h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.team-info p {
+  margin: 2px 0;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+@media screen and (max-width: 768px) {
+  .team-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.box.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #e5e5e5;
+  margin: 2em auto;
+  padding: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.box.features-grid .feature {
+  padding: 1.5em;
+  border-right: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Keep the right border, but fix spacing */
+.box.features-grid .feature:nth-child(4n) {
+  /* Keep border-right for visual consistency */
+  /* Optional: Add slightly less padding if it looks tight */
+}
+
+/* Fix bottom row spacing only if needed */
+.box.features-grid .feature:nth-last-child(-n+4) {
+  border-bottom: none;
+}
+
+.box.features-grid .feature img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1em;
+}
+
+
+/* END OF NEW CLASSES*/
 
 .our-webcoderskull{
   background: url("http://www.webcoderskull.com/img/right-sider-banner.png") no-repeat center top / cover;
