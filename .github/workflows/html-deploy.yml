@@ -1,0 +1,30 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]  # Trigger on push to main
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: write  # Needed for deployment
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout repo
+      uses: actions/checkout@v4
+
+    - name: 🧪 (Optional) Lint HTML and CSS
+      run: |
+        npm install -g htmlhint stylelint
+        htmlhint . || echo "HTML lint errors"
+        find . -name "*.css" -print0 | xargs -0 stylelint || echo "CSS lint errors"
+
+    - name: 🚀 Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./  # Change to ./docs if your site is in /docs
