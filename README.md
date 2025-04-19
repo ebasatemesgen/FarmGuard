@@ -1,4 +1,4 @@
-[![Deploy static site](https://github.com/ebagirma/your-repo-name/actions/workflows/html-deploy.yml/badge.svg)](https://github.com/ebagirma/your-repo-name/actions/workflows/html-deploy.yml)
+[![Deploy static site](https://github.com/ebasatemesgen/FarmGuard/actions/workflows/html-deploy.yml/badge.svg)](https://github.com/ebasatemesgen/FarmGuard/actions/workflows/html-deploy.yml)
 
 
 
