@@ -3926,26 +3926,26 @@ ul .team-heading{
     padding-bottom: 55px;
     padding-top: 55px;
 }
-.practice-area .inner{ 
-     border:1px solid #999999; 
-	 text-align:center; 
-	 margin-bottom:28px; 
+.practice-area .inner{
+     border:1px solid #999999;
+	 text-align:center;
+	 margin-bottom:28px;
 	 padding:40px 25px;
 }
 .our-webcoderskull .cnt-block:hover {
     box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
     border: 0;
 }
-.practice-area .inner h3{ 
-    color:#3c3c3c; 
-	font-size:24px; 
+.practice-area .inner h3{
+    color:#3c3c3c;
+	font-size:24px;
 	font-weight:500;
 	font-family: 'Poppins', sans-serif;
 	padding: 10px 0;
 }
-.practice-area .inner p{ 
-    font-size:14px; 
-	line-height:22px; 
+.practice-area .inner p{
+    font-size:14px;
+	line-height:22px;
 	font-weight:400;
 }
 .practice-area .inner img{
@@ -3964,7 +3964,21 @@ ul .team-heading{
     .half-cropped-vertical img {
     height: 200%;
     width: auto;
+    /*transform: translateY(-48%); /* show top half */
     }
+
+/*This if for Path planning lead style -Melody*/
+.name-pair {
+  display: flex;
+  gap: 10px; /* space between the names */
+  justify-content: center;
+  flex-wrap: wrap; /* allows them to stack on small screens */
+}
+
+.name-pair h3 {
+  margin: 0;
+  font-size: 1rem; /* optional: make the names a bit smaller if needed */
+}
 
 /*This is for project management*/
 .dual-members {
@@ -4033,14 +4047,19 @@ ul .team-heading{
   color: #555;
 }
 
+@media screen and (max-width: 768px) {
+  .team-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 .box.features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* flexible columns */
   border: 1px solid #e5e5e5;
-  margin: 2em auto;
+  margin: 0 auto;
   padding: 0;
-  max-width: 100%;
+  max-width: 800px;
   box-sizing: border-box;
 }
 
@@ -4060,6 +4079,7 @@ ul .team-heading{
   border-bottom: none;
 }
 
+
 /* Fix bottom row spacing only if needed
 .box.features-grid .feature:nth-last-child(-n+4) {
   border-bottom: none;
@@ -4072,18 +4092,18 @@ ul .team-heading{
   border-radius: 50%;
   margin-bottom: 1em;
 }
-
 @media screen and (max-width: 768px) {
   .box.features-grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
 
+
 /* END OF NEW CLASSES*/
 
 .our-webcoderskull{
   background: url("http://www.webcoderskull.com/img/right-sider-banner.png") no-repeat center top / cover;
-  
+
 }
 .our-webcoderskull ul {
   list-style: none;
@@ -4091,31 +4111,31 @@ ul .team-heading{
   margin: 0;
 }
 
-.our-webcoderskull .cnt-block{ 
+.our-webcoderskull .cnt-block{
    float:left;
-   width:100%; 
-   background:#fff; 
-   padding:30px 20px; 
-   text-align:center; 
+   width:100%;
+   background:#fff;
+   padding:30px 20px;
+   text-align:center;
    border:2px solid #d5d5d5;
    margin: 0 0 28px;
 }
 .our-webcoderskull .cnt-block figure{
-   width:148px; 
-   height:148px; 
-   border-radius:100%; 
+   width:148px;
+   height:148px;
+   border-radius:100%;
    display:inline-block;
    margin-bottom: 15px;
 }
-.our-webcoderskull .cnt-block img{ 
-   width:148px; 
-   height:148px; 
-   border-radius:100%; 
+.our-webcoderskull .cnt-block img{
+   width:148px;
+   height:148px;
+   border-radius:100%;
 }
-.our-webcoderskull .cnt-block h3{ 
-   color:#2a2a2a; 
-   font-size:20px; 
-   font-weight:500; 
+.our-webcoderskull .cnt-block h3{
+   color:#2a2a2a;
+   font-size:20px;
+   font-weight:500;
    padding:6px 0;
    text-transform:uppercase;
 }
@@ -4126,10 +4146,10 @@ ul .team-heading{
 .our-webcoderskull .cnt-block h3 a:hover{
 	color:#337ab7;
 }
-.our-webcoderskull .cnt-block p{ 
-   color:#2a2a2a; 
-   font-size:13px; 
-   line-height:20px; 
+.our-webcoderskull .cnt-block p{
+   color:#2a2a2a;
+   font-size:13px;
+   line-height:20px;
    font-weight:400;
    text-decoration: underline;
 }
@@ -4144,12 +4164,11 @@ ul .team-heading{
 	list-style: none;
 	margin:0 73px;
 }
-.our-webcoderskull .cnt-block .follow-us li .fa{ 
+.our-webcoderskull .cnt-block .follow-us li .fa{
    font-size:30px;
    color:#767676;
    transition: color 0.3s ease;
 }
-.our-webcoderskull .cnt-block .follow-us li .fa:hover{ 
+.our-webcoderskull .cnt-block .follow-us li .fa:hover{
    color:#025a8e;
 }
-
