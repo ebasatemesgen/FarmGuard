@@ -3105,7 +3105,7 @@
 		list-style: none;
 		margin: calc(-0.5em + 1px) 0 0 1px;
 		padding: 0.5em 0;
-		width: 11em;
+		width: 12em;
 	}
 
 		.dropotron li {
@@ -3898,21 +3898,6 @@
 	}
 
 
-/* Container box team list cursor style -Melody*/
-.icon-link {
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.icon-link .icon {
-	transition: transform 0.2s ease;
-}
-
-.icon-link:hover .icon {
-	transform: scale(1.1); /* Optional: little bounce on hover */
-}
-
-
 /* This is added by Ebasa Temesgen for Team Members */
 .row.heading .team-heading h2 {
     color: #fff;
@@ -3941,26 +3926,26 @@ ul .team-heading{
     padding-bottom: 55px;
     padding-top: 55px;
 }
-.practice-area .inner{ 
-     border:1px solid #999999; 
-	 text-align:center; 
-	 margin-bottom:28px; 
+.practice-area .inner{
+     border:1px solid #999999;
+	 text-align:center;
+	 margin-bottom:28px;
 	 padding:40px 25px;
 }
 .our-webcoderskull .cnt-block:hover {
     box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
     border: 0;
 }
-.practice-area .inner h3{ 
-    color:#3c3c3c; 
-	font-size:24px; 
+.practice-area .inner h3{
+    color:#3c3c3c;
+	font-size:24px;
 	font-weight:500;
 	font-family: 'Poppins', sans-serif;
 	padding: 10px 0;
 }
-.practice-area .inner p{ 
-    font-size:14px; 
-	line-height:22px; 
+.practice-area .inner p{
+    font-size:14px;
+	line-height:22px;
 	font-weight:400;
 }
 .practice-area .inner img{
@@ -3969,8 +3954,8 @@ ul .team-heading{
 
 /* Cropping get involved picture -Melody*/
 .half-cropped-vertical {
-    height: 50%;
-    max-height: 248px; /* adjust based on your needs */
+    height: 90%;
+    max-height: 310px; /* adjust based on your needs */
     overflow: hidden;
     display: block;
     position: relative;
@@ -3979,7 +3964,7 @@ ul .team-heading{
     .half-cropped-vertical img {
     height: 200%;
     width: auto;
-    transform: translateY(-48%); /* show top half */
+    /*transform: translateY(-48%); /* show top half */
     }
 
 /*This if for Path planning lead style -Melody*/
@@ -3993,6 +3978,41 @@ ul .team-heading{
 .name-pair h3 {
   margin: 0;
   font-size: 1rem; /* optional: make the names a bit smaller if needed */
+}
+
+/*This is for project management*/
+.dual-members {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.dual-members .member {
+  text-align: center;
+}
+
+.dual-members .member figure {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 10px;
+}
+
+.dual-members .member img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.dual-members .member h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 /*This is for the team members on each Team page -Melody*/
@@ -4035,32 +4055,35 @@ ul .team-heading{
 
 .box.features-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* flexible columns */
   border: 1px solid #e5e5e5;
-  margin: 2em auto;
+  margin: 0 auto;
   padding: 0;
-  max-width: 100%;
+  max-width: 800px;
   box-sizing: border-box;
 }
 
 .box.features-grid .feature {
   padding: 1.5em;
-  border-right: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
-  text-align: center;
+  border-right: 1px solid #e5e5e5;
   box-sizing: border-box;
 }
 
-/* Keep the right border, but fix spacing */
-.box.features-grid .feature:nth-child(4n) {
-  /* Keep border-right for visual consistency */
-  /* Optional: Add slightly less padding if it looks tight */
+/* Remove right border for last in row (visual fix) */
+.box.features-grid .feature:nth-child(n) {
+  border-right: 1px solid #e5e5e5;
 }
 
-/* Fix bottom row spacing only if needed */
-.box.features-grid .feature:nth-last-child(-n+4) {
+.box.features-grid .feature:last-child {
   border-bottom: none;
 }
+
+
+/* Fix bottom row spacing only if needed
+.box.features-grid .feature:nth-last-child(-n+4) {
+  border-bottom: none;
+}*/
 
 .box.features-grid .feature img {
   width: 60px;
@@ -4069,39 +4092,50 @@ ul .team-heading{
   border-radius: 50%;
   margin-bottom: 1em;
 }
+@media screen and (max-width: 768px) {
+  .box.features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
 
 
 /* END OF NEW CLASSES*/
 
 .our-webcoderskull{
   background: url("http://www.webcoderskull.com/img/right-sider-banner.png") no-repeat center top / cover;
-  
+
 }
-.our-webcoderskull .cnt-block{ 
-   float:left; 
-   width:100%; 
-   background:#fff; 
-   padding:30px 20px; 
-   text-align:center; 
+.our-webcoderskull ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.our-webcoderskull .cnt-block{
+   float:left;
+   width:100%;
+   background:#fff;
+   padding:30px 20px;
+   text-align:center;
    border:2px solid #d5d5d5;
    margin: 0 0 28px;
 }
 .our-webcoderskull .cnt-block figure{
-   width:148px; 
-   height:148px; 
-   border-radius:100%; 
+   width:148px;
+   height:148px;
+   border-radius:100%;
    display:inline-block;
    margin-bottom: 15px;
 }
-.our-webcoderskull .cnt-block img{ 
-   width:148px; 
-   height:148px; 
-   border-radius:100%; 
+.our-webcoderskull .cnt-block img{
+   width:148px;
+   height:148px;
+   border-radius:100%;
 }
-.our-webcoderskull .cnt-block h3{ 
-   color:#2a2a2a; 
-   font-size:20px; 
-   font-weight:500; 
+.our-webcoderskull .cnt-block h3{
+   color:#2a2a2a;
+   font-size:20px;
+   font-weight:500;
    padding:6px 0;
    text-transform:uppercase;
 }
@@ -4112,25 +4146,30 @@ ul .team-heading{
 .our-webcoderskull .cnt-block h3 a:hover{
 	color:#337ab7;
 }
-.our-webcoderskull .cnt-block p{ 
-   color:#2a2a2a; 
-   font-size:13px; 
-   line-height:20px; 
+.our-webcoderskull .cnt-block p{
+   color:#2a2a2a;
+   font-size:13px;
+   line-height:20px;
    font-weight:400;
+   text-decoration: underline;
 }
 .our-webcoderskull .cnt-block .follow-us{
-	margin:20px 0 0;
+	margin: 10px 0; /* Add vertical margin to create space between the name and icons */
+    padding: 0; /* Remove padding if there is any default */
+    list-style: none; /* Remove default list bullets */
+    display: flex; /* Flexbox for aligning items */
+    justify-content: center; /* Center the icons */
 }
-.our-webcoderskull .cnt-block .follow-us li{ 
-    display:inline-block; 
-	width:auto; 
-	margin:0 5px;
+.our-webcoderskull .cnt-block .follow-us li{
+	list-style: none;
+	margin:0 73px;
 }
-.our-webcoderskull .cnt-block .follow-us li .fa{ 
-   font-size:24px; 
+.our-webcoderskull .cnt-block .follow-us li .fa{
+   font-size:30px;
    color:#767676;
+   transition: color 0.3s ease;
 }
-.our-webcoderskull .cnt-block .follow-us li .fa:hover{ 
+.our-webcoderskull .cnt-block .follow-us li .fa:hover{
    color:#025a8e;
 }
 
