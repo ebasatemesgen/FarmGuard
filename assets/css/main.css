@@ -3898,21 +3898,6 @@
 	}
 
 
-/* Container box team list cursor style -Melody*/
-.icon-link {
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.icon-link .icon {
-	transition: transform 0.2s ease;
-}
-
-.icon-link:hover .icon {
-	transform: scale(1.1); /* Optional: little bounce on hover */
-}
-
-
 /* This is added by Ebasa Temesgen for Team Members */
 .row.heading .team-heading h2 {
     color: #fff;
@@ -3969,8 +3954,8 @@ ul .team-heading{
 
 /* Cropping get involved picture -Melody*/
 .half-cropped-vertical {
-    height: 50%;
-    max-height: 248px; /* adjust based on your needs */
+    height: 90%;
+    max-height: 310px; /* adjust based on your needs */
     overflow: hidden;
     display: block;
     position: relative;
@@ -3979,20 +3964,41 @@ ul .team-heading{
     .half-cropped-vertical img {
     height: 200%;
     width: auto;
-    transform: translateY(-48%); /* show top half */
     }
 
-/*This if for Path planning lead style -Melody*/
-.name-pair {
+/*This is for project management*/
+.dual-members {
   display: flex;
-  gap: 10px; /* space between the names */
   justify-content: center;
-  flex-wrap: wrap; /* allows them to stack on small screens */
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
-.name-pair h3 {
+.dual-members .member {
+  text-align: center;
+}
+
+.dual-members .member figure {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 10px;
+}
+
+.dual-members .member img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.dual-members .member h3 {
+  font-size: 16px;
+  font-weight: 500;
   margin: 0;
-  font-size: 1rem; /* optional: make the names a bit smaller if needed */
+  text-transform: uppercase;
 }
 
 /*This is for the team members on each Team page -Melody*/
@@ -4027,15 +4033,10 @@ ul .team-heading{
   color: #555;
 }
 
-@media screen and (max-width: 768px) {
-  .team-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 .box.features-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* flexible columns */
   border: 1px solid #e5e5e5;
   margin: 2em auto;
   padding: 0;
@@ -4045,22 +4046,24 @@ ul .team-heading{
 
 .box.features-grid .feature {
   padding: 1.5em;
-  border-right: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
-  text-align: center;
+  border-right: 1px solid #e5e5e5;
   box-sizing: border-box;
 }
 
-/* Keep the right border, but fix spacing */
-.box.features-grid .feature:nth-child(4n) {
-  /* Keep border-right for visual consistency */
-  /* Optional: Add slightly less padding if it looks tight */
+/* Remove right border for last in row (visual fix) */
+.box.features-grid .feature:nth-child(n) {
+  border-right: 1px solid #e5e5e5;
 }
 
-/* Fix bottom row spacing only if needed */
-.box.features-grid .feature:nth-last-child(-n+4) {
+.box.features-grid .feature:last-child {
   border-bottom: none;
 }
+
+/* Fix bottom row spacing only if needed
+.box.features-grid .feature:nth-last-child(-n+4) {
+  border-bottom: none;
+}*/
 
 .box.features-grid .feature img {
   width: 60px;
@@ -4070,6 +4073,11 @@ ul .team-heading{
   margin-bottom: 1em;
 }
 
+@media screen and (max-width: 768px) {
+  .box.features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
 
 /* END OF NEW CLASSES*/
 
@@ -4077,8 +4085,14 @@ ul .team-heading{
   background: url("http://www.webcoderskull.com/img/right-sider-banner.png") no-repeat center top / cover;
   
 }
+.our-webcoderskull ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
 .our-webcoderskull .cnt-block{ 
-   float:left; 
+   float:left;
    width:100%; 
    background:#fff; 
    padding:30px 20px; 
@@ -4117,18 +4131,23 @@ ul .team-heading{
    font-size:13px; 
    line-height:20px; 
    font-weight:400;
+   text-decoration: underline;
 }
 .our-webcoderskull .cnt-block .follow-us{
-	margin:20px 0 0;
+	margin: 10px 0; /* Add vertical margin to create space between the name and icons */
+    padding: 0; /* Remove padding if there is any default */
+    list-style: none; /* Remove default list bullets */
+    display: flex; /* Flexbox for aligning items */
+    justify-content: center; /* Center the icons */
 }
-.our-webcoderskull .cnt-block .follow-us li{ 
-    display:inline-block; 
-	width:auto; 
-	margin:0 5px;
+.our-webcoderskull .cnt-block .follow-us li{
+	list-style: none;
+	margin:0 73px;
 }
 .our-webcoderskull .cnt-block .follow-us li .fa{ 
-   font-size:24px; 
+   font-size:30px;
    color:#767676;
+   transition: color 0.3s ease;
 }
 .our-webcoderskull .cnt-block .follow-us li .fa:hover{ 
    color:#025a8e;
