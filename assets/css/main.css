@@ -3955,7 +3955,7 @@ ul .team-heading{
 /* Cropping get involved picture -Melody*/
 .half-cropped-vertical {
     height: 90%;
-    max-height: 310px; /* adjust based on your needs */
+    max-height: 290px; /* adjust based on your needs */
     overflow: hidden;
     display: block;
     position: relative;
@@ -3980,7 +3980,7 @@ ul .team-heading{
   font-size: 1rem; /* optional: make the names a bit smaller if needed */
 }
 
-/*This is for project management*/
+/*This is for project management leads on homepage*/
 .dual-members {
   display: flex;
   justify-content: center;
