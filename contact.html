@@ -49,10 +49,10 @@
 				<section id="main" class="container medium">
 					<header>
 						<h2>Contact Us</h2>
-						<p>Tell us what you think about our little operation.</p>
+						<p>Any questions, concerns, or tell us what you think.</p>
 					</header>
 					<div class="box">
-						<form method="post" action="#">
+						<form method="post">
 							<div class="row gtr-50 gtr-uniform">
 								<div class="col-6 col-12-mobilep">
 									<input type="text" name="name" id="name" value="" placeholder="Name" />
@@ -73,14 +73,16 @@
 								</div>
 							</div>
 						</form>
+						<!-- This is the message container to show feedback -->
+						<div id="form-feedback" style="display: none;"></div>
 					</div>
 				</section>
 
 			<!-- Footer -->
 				<footer id="footer">
 					<ul class="icons">
-						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="https://nextgenai.umn.edu/team" class="icon brands fa-google-plus"><span class="label">Lab Page</span></a></li>
+						<!--<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>-->
+						<li><a href="https://nextgenai.umn.edu/team" class="icon brands fa-google"><span class="label">Lab Page</span></a></li>
 						<li><a href="https://www.youtube.com/watch?v=ey3nkC1Hffc" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
 					</ul>
 					<ul class="copyright">
@@ -98,6 +100,61 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		<!-- EmailJS -->
+		<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+		<script>
+			(function(){
+              emailjs.init("v-zhlVQsBhtzh5wSX"); // Your actual public key
+            })();
+
+            document.querySelector("form").addEventListener("submit", function(e) {
+              e.preventDefault();
+
+              // Clear any previous messages
+              const feedback = document.getElementById("form-feedback");
+              feedback.style.display = "none";
+              feedback.innerHTML = "";
+
+              // Get form values
+              const name = document.getElementById("name").value.trim();
+              const email = document.getElementById("email").value.trim();
+              const subject = document.getElementById("subject").value.trim();
+              const message = document.getElementById("message").value.trim();
+
+              // Check if any required field is empty
+              if (!name || !email || !subject || !message) {
+                feedback.style.display = "block";
+                feedback.style.color = "red";
+                feedback.innerHTML = "All fields are required. Please fill them out.";
+                return; // Stop the form from submitting
+              }
+
+              // Create hidden time field for the message
+              const timeInput = document.createElement("input");
+              timeInput.type = "hidden";
+              timeInput.name = "time";
+              timeInput.value = new Date().toLocaleString();
+              this.appendChild(timeInput);
+
+              // Send the form data to EmailJS
+              emailjs.sendForm("service_farmguard", "template_yrct5qq", this)
+                .then(() => {
+                  feedback.style.display = "block";
+                  feedback.style.color = "green";
+                  feedback.innerHTML = "Message sent successfully!";
+                })
+                .catch((err) => {
+                  feedback.style.display = "block";
+                  feedback.style.color = "red";
+                  feedback.innerHTML = "Send failed: " + JSON.stringify(err);
+                });
+
+              // Clean up
+              this.removeChild(timeInput);
+            });
+		</script>
+
+
 
 	</body>
 </html>
