@@ -2250,12 +2250,12 @@
 /* Box */
 
 	.box {
-		background: #fff;
-		border-radius: 6px;
-		box-shadow: 0 2px 0 0 #e5e5e5;
-		margin: 0 0 2em 0;
-		padding: 3em;
-	}
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 0 0 #e5e5e5;
+      margin: 0 0 2em 0;
+      padding: 2em; /* Reduced from 3em for tighter layout */
+    }
 
 		.box > :last-child {
 			margin-bottom: 0;
@@ -4015,7 +4015,7 @@ ul .team-heading{
   text-transform: uppercase;
 }
 
-/*This is for the team members on each Team page -Melody*/
+/*This is for the team members on each Team page -Melody
 .team-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -4051,53 +4051,130 @@ ul .team-heading{
   .team-container {
     grid-template-columns: repeat(2, 1fr);
   }
-}
+}*/
 
+/* Features Grid (Team Members) */
 .box.features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* flexible columns */
-  border: 1px solid #e5e5e5;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dynamic columns, min 250px */
+  gap: 1.75rem; /* Spacing between cards */
   margin: 0 auto;
   padding: 0;
-  max-width: 800px;
+  max-width: 900px; /* Slightly wider than index page for consistency */
   box-sizing: border-box;
+  border: none; /* Remove default border */
 }
 
 .box.features-grid .feature {
-  padding: 1.5em;
-  border-bottom: 1px solid #e5e5e5;
-  border-right: 1px solid #e5e5e5;
+  background: #fff;
+  border: 2px solid #d5d5d5; /* Match .cnt-block border */
+  border-radius: 6px;
+  padding: 1.875rem 1.25rem; /* 30px 20px */
+  text-align: center;
+  transition: box-shadow 0.3s ease;
   box-sizing: border-box;
 }
 
-/* Remove right border for last in row (visual fix) */
-.box.features-grid .feature:nth-child(n) {
-  border-right: 1px solid #e5e5e5;
+.box.features-grid .feature:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Match .cnt-block hover */
 }
 
-.box.features-grid .feature:last-child {
-  border-bottom: none;
+.box.features-grid .feature figure {
+  width: 148px;
+  height: 148px;
+  border-radius: 100%;
+  display: inline-block;
+  margin: 0 auto 15px;
 }
-
-
-/* Fix bottom row spacing only if needed
-.box.features-grid .feature:nth-last-child(-n+4) {
-  border-bottom: none;
-}*/
 
 .box.features-grid .feature img {
-  width: 60px;
-  height: 60px;
+  width: 148px;
+  height: 148px;
+  border-radius: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 1em;
 }
-@media screen and (max-width: 768px) {
+
+.box.features-grid .feature h3 {
+  color: #2a2a2a;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 6px 0;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.box.features-grid .feature p {
+  color: #2a2a2a;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+  margin: 2px 0;
+  text-decoration: underline;
+}
+
+.box.features-grid .feature .follow-us {
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.box.features-grid .feature .follow-us li .fa {
+  font-size: 30px;
+  color: #767676;
+  transition: color 0.3s ease;
+}
+
+.box.features-grid .feature .follow-us li .fa:hover {
+  color: #025a8e;
+}
+
+/* Responsive: Stack vertically on small screens */
+@media screen and (max-width: 736px) {
   .box.features-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: 1fr; /* Single column */
+    max-width: 100%;
+    gap: 1.5rem;
+  }
+
+  .box.features-grid .feature {
+    padding: 1.5rem;
+  }
+
+  .box.features-grid .feature img {
+    width: 120px; /* Slightly smaller for mobile */
+    height: 120px;
+  }
+
+  .box.features-grid .feature figure {
+    width: 120px;
+    height: 120px;
   }
 }
 
+@media screen and (max-width: 480px) {
+  .box.features-grid .feature {
+    padding: 1.25rem;
+  }
+
+  .box.features-grid .feature h3 {
+    font-size: 18px;
+  }
+
+  .box.features-grid .feature p {
+    font-size: 12px;
+  }
+}
+
+#team-leads-section {
+  padding: 2rem 0;
+}
+#team-leads-section h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
 /* END OF NEW CLASSES*/
 
