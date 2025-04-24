@@ -4776,3 +4776,300 @@ ul .team-heading{
 	pointer-events: none;
   }
   
+
+
+
+
+
+
+
+
+
+
+  /* ──────────────────────────────────────────────────────────────────────────
+   Advisors Section: Card & Button Styling Enhancements
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Container Decorations */
+#advisors-section {
+	position: relative;
+	overflow: hidden;
+	padding: 4rem 0;
+  }
+  #advisors-section::before,
+  #advisors-section::after {
+	content: '';
+	position: absolute;
+	width: 300px; height: 300px;
+	border-radius: 50%;
+	pointer-events: none;
+  }
+  #advisors-section::before {
+	top: 10%; left: -5%;
+	background: radial-gradient(circle, rgba(108,92,231,0.2), transparent);
+  }
+  #advisors-section::after {
+	bottom: 5%; right: -5%;
+	background: radial-gradient(circle, rgba(0,184,148,0.2), transparent);
+  }
+  
+  /* Section Heading Underline Animation */
+  #advisors-section .text-center h2 {
+	position: relative;
+	display: inline-block;
+  }
+  #advisors-section .text-center h2::after {
+	content: '';
+	position: absolute;
+	width: 0; height: 4px;
+	background: linear-gradient(90deg, #6C5CE7, #00B894);
+	bottom: -8px; left: 50%;
+	transform: translateX(-50%);
+	transition: width 0.4s ease;
+  }
+  #advisors-section .text-center h2:hover::after {
+	width: 100%;
+  }
+  
+  /* Profile Row Cards */
+  #advisors-section .flex.flex-col.md\\:flex-row {
+	background: #fff;
+	border-radius: 1rem;
+	box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+	overflow: hidden;
+	margin-bottom: 3rem;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #advisors-section .flex.flex-col.md\\:flex-row:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+  }
+  
+  /* Profile Images */
+  #advisors-section img {
+	border-radius: 1rem;
+	transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  #advisors-section img:hover {
+	transform: scale(1.05);
+	filter: brightness(1.1);
+  }
+  
+  /* Name Gradient Text */
+  #advisors-section h3 {
+	font-size: 1.75rem;
+	background: linear-gradient(90deg, #6C5CE7, #00B894);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin-bottom: 0.5rem;
+  }
+  
+  /* Bio Paragraph */
+  #advisors-section p:nth-of-type(2) {
+	color: #555;
+	line-height: 1.6;
+	margin-bottom: 1.5rem;
+  }
+  
+  /* Icon Buttons: Gradient & Hover Effects */
+  #advisors-section .flex.space-x-4 a {
+	width: 3rem; height: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #6C5CE7, #00B894);
+	color: #fff;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #advisors-section .flex.space-x-4 a:hover {
+	transform: scale(1.2);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  
+  /* Individual Icon Background Overrides */
+  #advisors-section a[href*="maria-gini"] { background: linear-gradient(135deg, #6C5CE7, #515aac); }
+  #advisors-section a[href*="scholar.google.com"] { background: linear-gradient(135deg, #f1c40f, #e67e22); }
+  #advisors-section a[href*="linkedin"] { background: linear-gradient(135deg, #0077b5, #00a0dc); }
+  #advisors-section a[href*="freshearthfarms.com"] { background: linear-gradient(135deg, #00B894, #04d182); }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+	#advisors-section .flex.flex-col.md\\:flex-row {
+	  flex-direction: column;
+	  text-align: center;
+	}
+	#advisors-section .flex.flex-col.md\\:flex-row img {
+	  width: 80%;
+	  margin: 0 auto 1.5rem;
+	}
+  }
+ 
+  
+  /* Name styling: gradient text */
+.advisor-name {
+	font-size: 2rem;
+	font-weight: 700;
+	background: linear-gradient(90deg, #6C5CE7, #00B894);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin-bottom: 0.5rem;
+  }
+  
+  /* Role: subtle italic */
+  .advisor-role {
+	font-style: italic;
+	color: #555;
+	margin-bottom: 1rem;
+  }
+  
+  /* Bio: tighter line-height */
+  .advisor-bio {
+	color: #666;
+	line-height: 1.6;
+	margin-bottom: 1.5rem;
+  }
+  
+  /* Highlights list */
+  .advisor-highlights {
+	list-style: disc inside;
+	color: #444;
+	margin-left: 1rem;
+  }
+  
+  /* Icon buttons: white icons on gradient */
+  .icon-btn {
+	width: 3rem; height: 3rem;
+	display: flex; align-items: center; justify-content: center;
+	border-radius: 50%;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	position: relative;
+  }
+  .icon-btn i {
+	color: #fff;           /* force white icons */
+	font-size: 1.25rem;
+  }
+  
+  /* Specific gradients */
+  .icon-btn.web       { background: linear-gradient(135deg, #6C5CE7, #515aac); }
+  .icon-btn.scholar   { background: linear-gradient(135deg, #f1c40f, #e67e22); }
+  .icon-btn.linkedin  { background: linear-gradient(135deg, #0077b5, #00a0dc); }
+  .icon-btn.farm      { background: linear-gradient(135deg, #00B894, #04d182); }
+  
+  /* Hover effects */
+  .icon-btn:hover {
+	transform: scale(1.2);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  
+  /* Row card hover lift */
+  .advisor-row {
+	background: #fff;
+	border-radius: 1rem;
+	box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	overflow: hidden;
+	margin-bottom: 2rem;
+  }
+  .advisor-row:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+  }
+  
+  /* Responsive stacking */
+  @media (max-width: 768px) {
+	.advisor-row { flex-direction: column; text-align: center; }
+	.advisor-image img { width: 80%; margin: 0 auto 1.5rem; }
+  }
+  
+
+  /* Map Header Styling */
+.advisor-map-header h4 {
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: #2d3748; /* dark gray */
+	margin-bottom: 0.25rem;
+
+  }
+  .advisor-map-header p {
+	color: #4a5568; /* medium gray */
+	margin: 0;
+	font-size: 0.95rem;
+  }
+  
+  /* Embedded map styling */
+  .advisor-map-container {
+	width: 100%;
+	overflow: hidden;
+	border-radius: 0.5rem;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .advisor-map {
+	width: 100%;
+	height: 260px;
+	border: 0;
+  }
+  @media (min-width: 768px) {
+	.advisor-map {
+	  height: 320px;
+	}
+  }
+.advisor-links{
+	
+	padding-bottom: 5%;
+}
+
+  /* Learn More Button */
+.learn-more-btn {
+	background: linear-gradient(90deg, #6C5CE7, #00B894);
+	color: #fff;
+	padding: 0.75rem 1.5rem;
+	border: none;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .learn-more-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  
+  /* On small screens, make button full-width */
+  @media (max-width: 768px) {
+	.learn-more-btn {
+	  width: 100%;
+	  text-align: center;
+	}
+  }
+  
+
+
+  
+
+
+  /* ──────────────────────────────────────────────────────────────────────────
+   Universal Section Heading Underline Animation
+   ────────────────────────────────────────────────────────────────────────── */
+.text-center h2 {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .text-center h2::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 4px;
+	background: linear-gradient(90deg, #6C5CE7, #00B894);
+	bottom: -8px;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: width 0.4s ease;
+  }
+  
+  .text-center h2:hover::after {
+	width: 100%;
+  }
+  
