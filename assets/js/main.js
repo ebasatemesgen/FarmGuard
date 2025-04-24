@@ -84,44 +84,25 @@
 })(jQuery);
 
 
-(() => {
-  const zone  = document.getElementById('drone-zone');   // confinement area
-  const drone = document.getElementById('drone');
+// … the existing Alpha by HTML5 UP code above …
 
-  let box     = zone.getBoundingClientRect();            // zone position/size
-  let tX = box.width/2,  tY = box.height/2,              // target
-      cX = tX,           cY = tY;                        // current
-  const speed = 0.12;                                    // smoothing
-
-  /* pointer inside this zone only */
-  const setTarget = e => {
-      if (e.touches?.length) e = e.touches[0];
-      /* coordinates relative to the zone’s top‑left corner */
-      tX = e.clientX - box.left;
-      tY = e.clientY - box.top;
-      /* clamp to zone bounds */
-      tX = Math.max(0, Math.min(box.width , tX));
-      tY = Math.max(0, Math.min(box.height, tY));
-  };
-  zone.addEventListener('mousemove',  setTarget, {passive:true});
-  zone.addEventListener('touchstart', setTarget, {passive:true});
-  zone.addEventListener('touchmove',  setTarget, {passive:true});
-
-  /* update box on resize/scroll (in case layout shifts) */
-  const updateBox = () => box = zone.getBoundingClientRect();
-  addEventListener('resize',  updateBox);
-  addEventListener('scroll',  updateBox, true);          // capture scroll in parents
-
-  /* animation loop */
-  function tick(){
-      const dx = tX - cX, dy = tY - cY;
-      cX += dx * speed;  cY += dy * speed;
-      const ang = Math.atan2(dy, dx)*180/Math.PI + 90;
-
-      drone.style.left = `${cX}px`;
-      drone.style.top  = `${cY}px`;
-      drone.style.transform = `translate(-50%,-50%) rotate(${ang}deg)`;
-      requestAnimationFrame(tick);
-  }
-  tick();
-})();
+// our video overlay script
+$(function() {
+	const thumb      = document.getElementById('videoThumb');
+	const container  = document.getElementById('videoContainer');
+	const closeBtn   = document.getElementById('videoClose');
+	const iframe     = document.getElementById('demoIframe');
+  
+	if (!thumb || !container || !closeBtn || !iframe) return;
+  
+	thumb.addEventListener('click', () => {
+	  container.classList.add('active');
+	});
+  
+	closeBtn.addEventListener('click', () => {
+	  container.classList.remove('active');
+	  // reset src to stop playback
+	  iframe.src = iframe.src;
+	});
+  });
+  
