@@ -5094,4 +5094,68 @@ ul .team-heading{
 
 .text-center h2:hover::after {
 	width: 100%;
-}
+
+  }
+  
+
+
+
+#drone-zone{overflow:hidden;}     
+    /* DRONE container */
+	#drone{
+		position:absolute;
+		width:70px; aspect-ratio:1;
+		pointer-events:none;
+		filter:drop-shadow(0 4px 8px rgba(0,0,0,.25));
+	}
+
+    /* central body */
+    #drone .body {
+        position: absolute;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        width: 44px; height: 44px;
+        border-radius: 12px;
+        background: #2e2f33;
+    }
+
+    /* arms */
+    #drone .arm-h, #drone .arm-v {
+        position: absolute;
+        background: #505055;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #drone .arm-h { width: 120px; height: 10px; }
+    #drone .arm-v { width: 10px;  height: 120px; }
+
+    /* rotor discs */
+    #drone .rotor {
+        position: absolute;
+        width: 40px; height: 40px;
+        border: 4px solid #787c81;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    /* simple blur bar to fake prop blur */
+    #drone .rotor::after {
+        content: '';
+        position: absolute;
+        left: -100%; top: 50%;
+        width: 300%; height: 4px;
+        background: rgba(0,0,0,.22);
+        transform-origin: 50% 50%;
+        animation: spin .28s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* rotor positions */
+    .rotor-1 { left: -25px;  top: -25px;  }
+    .rotor-2 { right:-25px;  top: -25px;  }
+    .rotor-3 { left: -25px;  bottom:-25px;}
+    .rotor-4 { right:-25px;  bottom:-25px;}
+
+    /* scale down on very small screens */
+    @media (max-width:480px){
+        #drone { width: 54px; }
+    }

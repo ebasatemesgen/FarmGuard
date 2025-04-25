@@ -1,3 +1,7 @@
+[![Deploy static site](https://github.com/ebasatemesgen/FarmGuard/actions/workflows/html-deploy.yml/badge.svg)](https://github.com/ebasatemesgen/FarmGuard/actions/workflows/html-deploy.yml)
+
+
+
 # FarmGuard
 
 FarmGuard is a multi-robot system designed to detect and deter deer to prevent crop damage, developed at the University of Minnesota under Gini's Next Generation Robotics Lab.
