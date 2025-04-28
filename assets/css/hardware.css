@@ -460,3 +460,39 @@
     }
   }
   
+
+
+
+  /* ===== Drone Parts List Styling ===== */
+#drone-parts {
+  background-color: #ffffff;    /* white background to match your Design Process section */
+  padding: 2rem 1rem;           /* vertical and horizontal breathing room */
+}
+
+#drone-parts h2 {
+  text-align: center;           /* centre your single title */
+  margin-bottom: 1.5rem;
+}
+
+#drone-parts .overflow-hidden {
+  max-width: 1200px;            /* cap its width on large screens */
+  margin: 0 auto;               /* centre it in the viewport */
+}
+
+#drone-parts .overflow-hidden img {
+  width: 100%;                  /* span the full container width */
+  height: auto;                 /* keep aspect ratio */
+  display: block;               /* remove any inline‐image gaps */
+  border-radius: 0.5rem;        /* match your rounded‐corner styling */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  #drone-parts {
+    padding: 1rem 0.5rem;
+  }
+  #drone-parts .overflow-hidden {
+    margin: 0.5rem auto;
+  }
+}

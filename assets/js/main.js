@@ -88,11 +88,10 @@
 
 // our video overlay script
 $(function() {
-	const thumb      = document.getElementById('videoThumb');
-	const container  = document.getElementById('videoContainer');
-	const closeBtn   = document.getElementById('videoClose');
-	const iframe     = document.getElementById('demoIframe');
-  
+	const thumb     = document.getElementById('videoThumb');
+	const container = document.getElementById('videoContainer');
+	const closeBtn  = document.getElementById('videoClose');
+	const iframe    = document.getElementById('demoIframe');
 	if (!thumb || !container || !closeBtn || !iframe) return;
   
 	thumb.addEventListener('click', () => {
@@ -101,7 +100,7 @@ $(function() {
   
 	closeBtn.addEventListener('click', () => {
 	  container.classList.remove('active');
-	  // reset src to stop playback
+	  // reset iframe to stop playback
 	  iframe.src = iframe.src;
 	});
   });
