@@ -52,7 +52,17 @@
     <div class="box">
       <span class="image featured"><img src="images/DSC02047.jpg" alt="" /></span>
       <h3>What We Do</h3>
-      <p>Cep risus aliquam gravida cep ut lacus amet. Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac commodo faucibus faucibus. Curae ante vestibulum ante. Blandit. Ante accumsan nisi eu placerat gravida placerat adipiscing in risus fusce vitae ac mi accumsan nunc in accumsan tempor blandit aliquet aliquet lobortis. Ultricies blandit lobortis praesent turpis. Adipiscing accumsan adipiscing adipiscing ac lacinia cep. Orci blandit a iaculis adipiscing ac. Vivamus ornare laoreet odio vis praesent nunc lorem mi. Erat. Tempus sem faucibus ac id. Vis in blandit. Nascetur ultricies blandit ac. Arcu aliquam. Accumsan mi eget adipiscing nulla. Non vestibulum ac interdum condimentum semper commodo massa arcu.</p>
+      <p>We are responsible for planning the drone's movements and actions when searching a farm for deer and when deterring deer once they are detected.</p>
+      <h4>Searching for deer</h4>
+      <p>We frame the deer searching problem as an energy-efficient coverage path planning problem. Given a farm that we wish to surveil, we evenly distributre waypoints across the farm so that if a drone travels through all of the waypoints, then the entire area has been searched.</p>
+      <img src="images/teams/path_planning/aco_sys_arch.jpg" alt="" />
+      <p>For each drone, we use <a href="https://ieeexplore.ieee.org/abstract/document/4129846" target="_blank">Ant Colony Optimization (ACO)</a> to generate energy-efficient flight path from its charging station, through all waypoints that aren't too close to obstacles such as trees or buildings, and back to its charging station. We <a href="https://ieeexplore.ieee.org/abstract/document/7989732" target="_blank">approximate the energy cost</a> of a flight path by considering the distance and rotations required for a drone to execute the path. We constrain the flight paths of drones to travel along edges in straight lines. So, in order to ensure obstacle avoidance, we simply remove any edges that cross or come close to obstacles.</p>
+      <p>Here are example paths that we generated with ACO that avoid obstacles!</p>
+      <img src="images/teams/path_planning/onedrone_mmas_1.png" width="500" alt="" /><img src="images/teams/path_planning/twodrones_mmas_1.png" width="500" alt="" />
+      <p>If you're interested in learning the details of our implementation, please <a href="contact.html">get in touch with us</a>! We will upload a detailed paper soon.</p>
+      <p><a href="https://github.com/generic-placeholder-name/vmas-drone-sim" target="_blank">Coverage Path Planning Github</a></p>
+      <h4>Deterring deer</h4>
+
       <h3>Meet the Team</h3>
       <section id="team-leads-section">
         <div class="box features-grid">
@@ -66,8 +76,8 @@
             <p>Computer Science</p>
             <p>jerez005@umn.edu</p>
             <ul class="follow-us">
-              <li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-              <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+              <li><a href="https://www.linkedin.com/in/mario-jerez/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="https://github.com/mariojerez" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
             </ul>
           </div>
           <!-- Ebasa Temesgen -->
@@ -80,8 +90,8 @@
             <p>Computer Science</p>
             <p>temes021@umn.edu</p>
             <ul class="follow-us">
-              <li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-              <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+              <li><a href="https://www.linkedin.com/in/ebasa-temesgen-510709192/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+              <li><a href="https://github.com/ebasatemesgen" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
             </ul>
           </div>
           <!-- Greta Brown -->
@@ -93,10 +103,6 @@
             <p>Undergraduate</p>
             <p>Computer Science</p>
             <p>brow6802@umn.edu</p>
-            <ul class="follow-us">
-              <li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-              <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-            </ul>
           </div>
           <!-- Tamojit Bera -->
           <div class="feature cnt-block">
@@ -107,10 +113,10 @@
             <p>Undergraduate</p>
             <p>Computer Science</p>
             <p>bera0041@umn.edu</p>
-            <ul class="follow-us">
+            <!--<ul class="follow-us">
               <li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
               <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-            </ul>
+            </ul>-->
           </div>
         </div>
       </section>
