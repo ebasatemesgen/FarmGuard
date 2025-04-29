@@ -1,0 +1,192 @@
+/* path_planning.css */
+
+/* Fade-in animation for section */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Main Section Styling */
+  #main.container {
+    padding: 3rem 2rem;
+    background-color: #f9fafb;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  /* Section Header */
+  #main header h2 {
+    position: relative;
+    display: inline-block;
+    font-size: 2.75rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+  }
+  #main header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 0;
+    background: linear-gradient(90deg, #6C5CE7, #00B894);
+    transition: width 0.4s ease;
+  }
+  #main header h2:hover::after {
+    width: 100%;
+  }
+  
+  /* Box Container */
+  #main .box {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  /* Featured Image */
+  #main .image.featured {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  #main .image.featured img {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #main .image.featured img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  }
+  
+  /* Subheading h3 */
+  #main h3 {
+    font-size: 1.875rem;
+    color: #1b263b;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #6C5CE7;
+    padding-left: 0.75rem;
+  }
+  
+  /* Creative Subheading h4 */
+  #main h4 {
+    position: relative;
+    display: inline-block;
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #e74c3c, #f1c40f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  #main h4::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, #6C5CE7, #00B894);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  #main h4:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Paragraph Text */
+  #main p {
+    color: #4a5568;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  
+  /* Inline Images */
+  #main > .box > img {
+    display: block;
+    margin: 2rem auto;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+  }
+  #main > .box > img:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Links */
+  #main a {
+    color: #6C5CE7;
+    text-decoration: none;
+    position: relative;
+  }
+  #main a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: #6C5CE7;
+    transition: width 0.2s ease;
+  }
+  #main a:hover::after {
+    width: 100%;
+  }
+  
+  /* Team Grid: wider cards & gradient backgrounds */
+  #team-leads-section .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .feature {
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    background: linear-gradient(135deg, #6C5CE7 0%, #00B894 100%);
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .feature:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+  }
+  
+  /* Team Photo */
+  .team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.6);
+    transition: transform 0.3s ease;
+  }
+  .team-photo:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Follow Us Icons */
+  .follow-us {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .follow-us li a {
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.85);
+    transition: color 0.3s ease;
+  }
+  .follow-us li a:hover {
+    color: #ffd700;
+  }
+  
