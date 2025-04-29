@@ -105,3 +105,19 @@ $(function() {
 	});
   });
   
+
+
+document.querySelectorAll('.media-video .video-wrapper').forEach(wrapper => {
+  wrapper.addEventListener('click', () => {
+    const id = wrapper.dataset.videoId;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    Object.assign(iframe.style, {
+      position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'
+    });
+    wrapper.innerHTML = '';
+    wrapper.appendChild(iframe);
+  });
+});

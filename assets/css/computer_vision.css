@@ -285,3 +285,63 @@
     color: #4a5568;
   }
   
+
+
+  /* Live Demos grid */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  /* Video card styling */
+  .media-video {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .media-video:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.16);
+  }
+  
+  /* 16:9 wrapper */
+  .media-video .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect */
+    background: #000;
+    cursor: pointer;
+  }
+  .media-video .video-thumb {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Bigger play button */
+  .media-video .play-button {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px; height: 80px;
+    background: rgba(0,0,0,0.6) url('play-icon.svg') no-repeat center center;
+    background-size: 50px 50px;
+    border: none;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.9;
+  }
+  
+  /* Caption */
+  .media-video figcaption {
+    padding: 1rem;
+    font-size: 1rem;
+    color: #2d3748;
+    text-align: center;
+  }
+  
