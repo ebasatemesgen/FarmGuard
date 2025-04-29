@@ -1,0 +1,287 @@
+/* ─────────────────────────────────────────────────────────
+   Design Evaluation Section Styles
+   ───────────────────────────────────────────────────────── */
+   .design-evaluation-section {
+    background: #fff;
+    padding: 4rem 2rem;
+  }
+  .design-evaluation-section .text-center h2 {
+    position: relative;
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+  }
+  .design-evaluation-section .text-center h2::after {
+    content: '';
+    display: block;
+    margin: 0.5rem auto 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #6C5CE7, #00B894);
+    border-radius: 2px;
+  }
+  
+  /* Subsections */
+  .design-evaluation-section .subsection {
+    margin-top: 3rem;
+  }
+  .design-evaluation-section .subsection h3 {
+    font-size: 1.75rem;
+    background: linear-gradient(90deg, #e74c3c, #f1c40f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+  
+  /* Metrics Table */
+  .metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+  }
+  .metrics-table th,
+  .metrics-table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+  }
+  .metrics-table thead th {
+    background: #f1f1f1;
+  }
+  
+  /* Figure Grid */
+  .figure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .figure-grid figure {
+    text-align: center;
+  }
+  .figure-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .figure-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  .figure-grid figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #4a5568;
+  }
+  
+
+  /* ─────────────────────────────────────────────────────────
+   Tracking Architecture Section
+   ───────────────────────────────────────────────────────── */
+.tracking-architecture-section {
+    background: #f0f4f8;
+    padding: 4rem 2rem;
+  }
+  .tracking-architecture-section .text-center h2 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+  }
+  .tracking-architecture-section .text-center p {
+    color: #4a5568;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+  
+  /* Flowchart container */
+  .flowchart-interactive {
+    width: 100%;
+    height: 400px;
+    background: url('images/flowchart-deer.png') center/contain no-repeat;
+    border: 2px dashed #6C5CE7;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    position: relative;
+    /* Replace with an embedded SVG or Canvas for interactivity */
+  }
+  
+  /* Explanation Cards */
+  .explanation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .explanation-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .explanation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+  }
+  .explanation-card h3 {
+    color: #6C5CE7;
+    margin-bottom: 0.75rem;
+  }
+  .explanation-card p {
+    color: #4a5568;
+    line-height: 1.5;
+  }
+  
+  /* Video Gallery (reusing .media-grid, .media-item from earlier) */
+  .media-grid {
+    margin-top: 2rem;
+  }
+  /* (media-item styles already in your CSS) */
+  
+  
+/* Two-column flowchart + text */
+/* Override for .flowchart-interactive */
+.flowchart-interactive {
+    display: flex;           /* lay out image + text side by side */
+    flex-wrap: wrap;         /* wrap on small screens */
+    gap: 2rem;               /* space between columns */
+    padding: 2rem;
+    background: #f9fafb;
+    border: 2px dashed #6C5CE7;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    height: auto !important; /* remove any fixed height */
+  }
+  
+  
+  .flowchart {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  
+  /* Image container */
+  .flowchart-image-container {
+    flex: 1 1 400px;
+    text-align: center;
+  }
+  .flowchart-image {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #6C5CE7;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .flowchart-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+  }
+  
+  /* Text container */
+  .flowchart-text {
+    flex: 1 1 300px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #2d3748;
+  }
+  .flowchart-text h3 {
+    margin-top: 0;
+    font-size: 1.75rem;
+    color: #6C5CE7;
+  }
+  .flowchart-text ol {
+    margin: 1rem 0;
+    padding-left: 1.25rem;
+  }
+  .flowchart-text li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .flowchart-text strong {
+    color: #34495e;
+  }
+  
+
+  /* Pipeline Explanation Styling */
+.flowchart-text {
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .flowchart-text h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #6C5CE7, #00B894);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  }
+  .flowchart-text h3::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, #6C5CE7, #00B894);
+    border-radius: 2px;
+  }
+  
+  /* Remove the default bullets and add our own counter */
+  .flowchart-text ol {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .flowchart-text li {
+    counter-increment: step;
+    position: relative;
+    background: #ffffff;
+    padding: 1rem 1rem 1rem 3.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #6C5CE7;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .flowchart-text li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  
+  /* Number badge */
+  .flowchart-text li::before {
+    content: counter(step);
+    position: absolute;
+    left:  -1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    background: #6C5CE7;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  
+  /* Emphasize the title of each step */
+  .flowchart-text li strong {
+    display: inline-block;
+    margin-bottom: 0.25rem;
+    color: #34495e;
+    font-size: 1.1rem;
+  }
+  
+  /* Smaller descriptive text */
+  .flowchart-text li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a5568;
+  }
+  
