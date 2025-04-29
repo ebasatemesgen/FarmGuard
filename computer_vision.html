@@ -10,6 +10,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/computer_vision.css" />
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
@@ -47,6 +48,14 @@
 
   <!-- Main -->
   <section id="main" class="container">
+
+
+
+
+
+
+
+    
     <header>
       <h2>Computer Vision Team</h2>
     </header>
@@ -153,6 +162,165 @@
       </section>
     </div>
   </section>
+
+
+<!-- Tracking Architecture & Live Demos -->
+<section id="tracking-architecture" class="tracking-architecture-section">
+  <div class="container">
+    <header class="text-center">
+      <h2>Tracking Architecture</h2>
+      <p>We combine YOLOv5 detections with Kalman and Extended Kalman Filters in a dual-path pipeline for robust deer tracking.</p>
+    </header>
+
+<!-- Interactive Flowchart Placeholder -->
+<div id="flowchart-interactive" class="flowchart-interactive">
+  <div class="flowchart">
+    <!-- Left: Diagram Image -->
+    <div class="flowchart-image-container">
+      <img src="images/teams/computer_vision/diagram.png"
+           alt="Tracking Architecture Diagram"
+           class="flowchart-image" />
+    </div>
+    <!-- Right: Explanatory Text -->
+    <div class="flowchart-text">
+      <h3>How the Pipeline Works</h3>
+      <ol>
+        <li>
+          <strong>Input video</strong><br>
+          Raw drone footage feeds into our vision system.
+        </li>
+        <li>
+          <strong>YOLO v5</strong><br>
+          Rapid object detector pinpoints deer bounding boxes.
+        </li>
+        <li>
+          <strong>Deer Detection</strong><br>
+          Aggregates YOLO proposals, filters out false positives.
+        </li>
+        <li>
+          <strong>Tracked Deer</strong><br>
+          Outputs stable positions for the downstream module.
+        </li>
+        <li>
+          <strong>Kalman Filter</strong><br>
+          Smooths the raw position sequence, assuming constant velocity.
+        </li>
+        <li>
+          <strong>Extended Kalman Filter</strong><br>
+          Handles non-linear motion and camera rotations for extra robustness.
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Architecture Explanation Cards -->
+    <div class="explanation-grid">
+      <div class="explanation-card">
+        <h3>YOLOv5 Detection</h3>
+        <p>Detects deer bounding boxes each frame, providing the raw measurements for tracking.</p>
+      </div>
+      <div class="explanation-card">
+        <h3>Kalman Filter</h3>
+        <p>Assumes constant velocity to predict and smooth positions over time, reducing jitter.</p>
+      </div>
+      <div class="explanation-card">
+        <h3>Extended Kalman Filter</h3>
+        <p>Incorporates camera rotation and non-linear motion; matches detections via Mahalanobis distance.</p>
+      </div>
+    </div>
+
+    <header class="text-center">
+      <h2>Live Demos</h2>
+    </header>
+
+  
+      <figure class="media-item media-video">
+        <div class="video-wrapper" data-video-id="U93zglEoR7I">
+          <!-- Auto‐fetched YouTube thumbnail -->
+          <img
+            src="https://img.youtube.com/vi/U93zglEoR7I/hqdefault.jpg"
+            alt="Deer running simulation thumbnail"
+            class="video-thumb"
+          />
+          <button class="play-button" aria-label="Play video"></button>
+        </div>
+        <figcaption>Deer running simulation</figcaption>
+      </figure>
+      
+      
+      <figure class="media-item media-video">
+        <div class="video-wrapper" data-video-id="yKSLR2CBzxg">
+          <!-- YouTube thumbnail auto-fetched -->
+          <img
+            src="https://img.youtube.com/vi/yKSLR2CBzxg/hqdefault.jpg"
+            alt="Kalman vs. EKF tracking demo thumbnail"
+            class="video-thumb"
+          />
+          <button class="play-button" aria-label="Play video"></button>
+        </div>
+        <figcaption>Kalman vs. EKF tracking demo</figcaption>
+      </figure>
+      
+      <!-- Add more <figure class="media-item"> as needed -->
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Design Evaluation Section -->
+<section id="design-evaluation" class="design-evaluation-section">
+  <div class="container">
+    <header class="text-center">
+      <h2>Design Evaluation</h2>
+    </header>
+
+    <div class="subsection deer-detection">
+      <h3>Deer Detection</h3>
+      <p>Deer detection is the upstream gateway to deterrence.  If we can’t see them, we can’t scare them away.  On our held-out test set, YOLOv5 hit <strong>92 % average accuracy</strong>.</p>
+      <table class="metrics-table">
+        <thead>
+          <tr><th>Metric</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>mAP@0.5</td><td>0.693</td></tr>
+          <tr><td>Best F1 (th=0.34)</td><td>0.69</td></tr>
+          <tr><td>Max Recall</td><td>0.86</td></tr>
+          <tr><td>True-Positive Rate</td><td>0.69</td></tr>
+          <tr><td>False-Positive Rate</td><td>0.00</td></tr>
+        </tbody>
+      </table>
+      <div class="figure-grid">
+        <figure>
+          <img src="images/teams/computer_vision/pr-curve.jpg" alt="Precision–Recall Curve">
+          <figcaption>Precision–Recall</figcaption>
+        </figure>
+        <figure>
+          <img src="images/teams/computer_vision/f1-curve.jpg" alt="F1 vs Confidence">
+          <figcaption>F1 vs Confidence</figcaption>
+        </figure>
+        <figure>
+          <img src="images/teams/computer_vision/r-curve.jpg" alt="Recall vs Confidence">
+          <figcaption>Recall vs Confidence</figcaption>
+        </figure>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+
+
+
+
+
+
 
   <!-- Footer -->
   <footer id="footer">
