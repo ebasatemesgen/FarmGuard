@@ -5204,3 +5204,9 @@ ul .team-heading{
   .copy-btn:hover {
 	background: #138a60;
   }
+
+/* Miscellanous */
+.email-link { /* I wanted it to not change color, but that doesn't really work */
+	color: inherit;
+	text-decoration: none;
+}  
