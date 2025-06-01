@@ -26,7 +26,7 @@
           <ul>
             <li><a href="hardware.html">Hardware Team</a></li>
             <li><a href="computer_vision.html">Computer Vision Team</a></li>
-            <li><a href="path_planning.html">Path Planning Team</a></li>
+            <li><a href="path_planning.html" >Path Planning Team</a></li>
             <li><a href="collab.html">Project Management Team</a></li>
             <!-- <li><a href="elements.html">Elements</a></li> -->
             <!-- <li>
@@ -67,6 +67,7 @@
             <ul class="follow-us">
               <li><a href="https://www.linkedin.com/in/mario-jerez/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
               <li><a href="https://github.com/mariojerez" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+              <li><a href="https://scholar.google.com/citations?user=tDNRp-YAAAAJ&hl=en&oi=sra" target="_blank" class="icon brands fa-google"><span class="label">Google Scholar</span></a></li>
             </ul>
           </div>
           <!-- Ebasa Temesgen -->
@@ -130,12 +131,59 @@
       <p>For each drone, we use <a href="https://ieeexplore.ieee.org/abstract/document/4129846" target="_blank">Ant Colony Optimization (ACO)</a> to generate energy-efficient flight path from its charging station, through all waypoints that aren't too close to obstacles such as trees or buildings, and back to its charging station. We <a href="https://ieeexplore.ieee.org/abstract/document/7989732" target="_blank">approximate the energy cost</a> of a flight path by considering the distance and rotations required for a drone to execute the path. We constrain the flight paths of drones to travel along edges in straight lines. So, in order to ensure obstacle avoidance, we simply remove any edges that cross or come close to obstacles.</p>
       <p>Here are example paths that we generated with ACO that avoid obstacles!</p>
       <img src="images/teams/path_planning/onedrone_mmas_1.png" width="500" alt="" /><img src="images/teams/path_planning/twodrones_mmas_1.png" width="500" alt="" />
-      <p>If you're interested in learning the details of our implementation, please <a href="contact.html">get in touch with us</a>! We'll be sharing a full paper in the near future.</p>
+      <p>If you're interested in learning the details of our implementation, please <a href="contact.html">get in touch with us</a>!</p>
       <p><a href="https://github.com/generic-placeholder-name/vmas-drone-sim" target="_blank">Coverage Path Planning Github</a></p>
       <!-- <h4>Deterring deer</h4>
       <p>Fill in this section</p> -->
     </div>
   </section>
+
+  <!-- Paper 3 -->
+  <div class="box">
+	<section class="paper-section">
+		<div class="paper-content">
+	
+		<!-- Left: Static thumbnail + download -->
+		<div class="paper-preview">
+			<a href="papers/UAV_Coverage_Path_Planning_for_Autonomous_Deer_Detection_in_the_Wild.pdf" target="_blank" download>
+			<img src="images/papers/ACO.png"
+				alt="First page of ACO-Driven Path Coverage paper"
+				class="paper-thumb">
+			</a>
+			<p>
+			<a href="papers/UAV_Coverage_Path_Planning_for_Autonomous_Deer_Detection_in_the_Wild.pdf" target="_blank" download class="download-btn">
+				Download PDF
+			</a>
+			</p>
+		</div>
+	
+		<!-- Right: Title, venue, and citation -->
+		<div class="paper-info">
+			<h2>UAV Coverage Path Planning for Autonomous Deer Detection in the Wild Driven by Ant Colony Optimization</h2>
+			<p class="venue">
+			Workshop: <a href="https://dartmouthrobotics.github.io/icra-2025-robots-wild/papers"
+						target="_blank" rel="noopener">
+				Robots in the Wild
+			</a>, ICRA 2025
+			</p>
+	
+			<div class="citation-container">
+			<button class="copy-btn" onclick="copyBibtex(this)">Copy BibTeX</button>
+			<textarea class="bibtex" readonly>
+	@inproceedings{Jerez2025ACO,
+		title     = {UAV Coverage Path Planning for Autonomous Deer Detection in the Wild Driven by Ant Colony Optimization},
+		author    = {Mario Jerez and Khoi Duong and Jack Swanberg and Horoom Bula and Ebasa Temesgen and Maria Gini},
+		booktitle = {Robots in the Wild Workshop, ICRA},
+		year      = {2025},
+		url       = {https://dartmouthrobotics.github.io/icra-2025-robots-wild/papers}
+	}
+			</textarea>
+			</div>
+		</div>
+	
+		</div>
+	</section>
+  </div>
 
   <!-- Footer -->
   <footer id="footer">
@@ -160,5 +208,26 @@
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 
+<!-- BibTeX Copy Functionality -->
+	<script>
+
+	// Autosize textarea to fit its content on load
+	window.addEventListener('DOMContentLoaded', () => {
+		document.querySelectorAll('.bibtex').forEach(ta => {
+		ta.style.height = 'auto';
+		ta.style.height = ta.scrollHeight + 'px';
+		});
+	});
+	
+
+	function copyBibtex(btn) {
+		const ta = btn.parentNode.querySelector('.bibtex');
+		ta.select();
+		document.execCommand('copy');
+		btn.textContent = 'Copied!';
+		setTimeout(() => btn.textContent = 'Copy BibTeX', 1500);
+	}
+	</script>
 </body>
 </html>
+
