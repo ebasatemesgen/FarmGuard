@@ -192,4 +192,165 @@
   
 
 
+  /* ──────────────────────────────────────────────────────────────────────────
+   Papers & Workshops Section: Grid & Card Styling
+   ────────────────────────────────────────────────────────────────────────── */
+/* Base for each paper-page */
+
+
+/* === Section backgrounds & spacing === */
+.paper-section {
+	padding: 6rem 1rem;              /* more vertical breathing room */
+	margin: 0 auto;                  /* center if you have a max-width */
+	/* background: linear-gradient(135deg, #fffaf0, #ffeecd); */
+  }
+  .paper-section.alt {
+	/* background: linear-gradient(135deg, #f0f9ff, #ffffff); */
+	background: linear-gradient(135deg, #ffffff, #f0efef);
+  }
   
+/* === Paper card container === */
+.paper-content {
+	display: flex;
+	gap: 3rem;                      
+	align-items: flex-start;
+	background: rgba(255,255,255,0.95);
+	border-radius: 16px;
+	box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+	padding: 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
+  }
+  @media (max-width: 800px) {
+	.paper-content { flex-direction: column; }
+  }
+  
+  /* === Preview column === */
+  .paper-preview {
+	flex: 0 0 45%;
+	text-align: center;
+  }
+  .paper-thumb {
+	width: 100%;
+	max-width: 600px;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+	transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .paper-thumb:hover {
+	transform: scale(1.05);
+	box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+  }
+  
+  /* === Download button === */
+  .download-btn {
+	display: inline-block;
+	margin-top: 0.75rem;
+	padding: 0.6em 1.2em;
+	font-weight: 600;
+	border-radius: 25px;
+	background: linear-gradient(45deg, #17B978, #138A60);
+	color: #fff;
+	text-decoration: none;
+	transition: background 0.3s, transform 0.3s;
+  }
+  .download-btn:hover {
+	background: linear-gradient(45deg, #138A60, #17B978);
+	transform: translateY(-2px);
+  }
+  
+  /* === Info column === */
+  .paper-info {
+	flex: 1;
+	font-family: sans-serif;
+  }
+  .paper-info h2 {
+	margin-top: 0;
+	font-size: 2rem;
+	color: #333;
+	border-left: 5px solid #17B978;
+	padding-left: 0.5rem;
+	/* border-left: 5px solid #17B978; */
+	transition: border-left-width 0.3s ease;
+  }
+  .paper-info .venue {
+	font-style: italic;
+	color: #555;
+	margin: 0.5rem 0 1.5rem;
+  }
+  .paper-info h2:hover {
+	border-left-width: 8px;
+  }
+  /* === Copy fields === */
+  .pdf-link,
+  .bibtex {
+	width: 100%;
+	font-family: monospace;
+	font-size: 0.9rem;
+	padding: 0.6em;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	background: #fff;
+	margin-bottom: 1rem;
+	cursor: text;
+	transition: box-shadow 0.3s;
+  }
+  .pdf-link:hover,
+  .bibtex:hover {
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  /* === Labels styling === */
+  .paper-info label {
+	display: block;
+	margin-top: 1rem;
+	font-weight: 600;
+	color: #444;
+	font-size: 0.95rem;
+  }
+
+
+
+
+/* === Responsive tweaks === */
+  /* Citation box */
+  .citation-container {
+	position: relative;
+	margin-top: 1rem;
+  }
+  .bibtex {
+	width: 100%;
+	padding: 0.6em;
+	font-family: monospace;
+	font-size: 0.9rem;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	background: #fff;
+	margin-bottom: 1rem;
+	resize: none;        /* disable manual resize */
+	white-space: pre;    /* preserve formatting, allow horiz. scroll */
+	overflow-x: auto;    /* horizontal scroll if needed */
+	/* overflow-y: visible; always show full height, no vertical scroll */
+	height: auto;        /* let JS/autosize set exact height */
+	overflow-y: hidden !important;
+  }
+
+  
+  /* Copy button */
+  .copy-btn {
+	position: absolute;
+	top: 0.25rem;
+	right: 0.25rem;
+	padding: 0.25em 0.5em;
+	font-size: 0.75rem;
+	background: #17B978;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background 0.3s;
+  }
+  .copy-btn:hover {
+	background: #138a60;
+  }
