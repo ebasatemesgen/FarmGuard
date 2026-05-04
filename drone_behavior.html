@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+  <title>Drone Behavior Team</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/drone_behavior.css" />
+  <style>
+    .training-indicator {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      color: #15803d;
+    }
+    .training-indicator__orbit {
+      position: relative;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    .training-indicator__orbit::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      border: 2px solid rgba(34, 197, 94, 0.25);
+    }
+    .training-indicator__dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0.5rem;
+      height: 0.5rem;
+      margin: -0.25rem 0 0 -0.25rem;
+      background: #22c55e;
+      border-radius: 9999px;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.85);
+      animation: training-orbit 1.4s linear infinite;
+    }
+    @keyframes training-orbit {
+      from { transform: rotate(0deg) translate(0.6875rem, 0); }
+      to   { transform: rotate(360deg) translate(0.6875rem, 0); }
+    }
+    .db-figure { margin: 1.5em 0; }
+    .db-figure img { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 6px; }
+    .db-figure figcaption { margin-top: 0.6em; font-size: 0.9em; color: #555; text-align: center; }
+    .db-rollout { max-width: 720px; }
+    .db-prev-paper-note {
+      background: #fff7ed;
+      border-left: 4px solid #f59e0b;
+      padding: 0.9em 1.1em;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      color: #92400e;
+      border-radius: 4px;
+    }
+    .db-training-block {
+      margin-top: 1.5em;
+      padding: 1.25em;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+    }
+    .db-training-block__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75em;
+      margin-bottom: 0.6em;
+    }
+    .db-training-block h4 { margin: 0; }
+  </style>
+</head>
+<body class="is-preload">
+<div id="page-wrapper">
+
+  <!-- Header -->
+  <header id="header">
+    <h1><a href="index.html">Farm</a>Guard</h1>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="index.html#team-lead-section" class="icon solid fa-angle-down">Teams</a>
+          <ul>
+            <li><a href="hardware.html">Hardware Team</a></li>
+            <li><a href="computer_vision.html">Computer Vision Team</a></li>
+            <li><a href="drone_behavior.html">Drone Behavior Team</a></li>
+            <li><a href="collab.html">Project Management Team</a></li>
+          </ul>
+        </li>
+        <li><a href="papers.html">Publications</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <section id="main" class="container">
+    <header>
+      <h2>Drone Behavior Team</h2>
+    </header>
+
+    <div class="box">
+      <h3>What We Do</h3>
+      <p>
+        We are responsible for planning the drone's movements and actions when searching a farm for deer and when deterring deer once they are detected. Patrols (or flight paths) are waypoint missions that are assigned to each drone by the base computer. To guarantee that the entire geofenced area, with the exception of no-fly zones, is scanned for deer, we overlay a grid across the area with grid cell sizes slightly smaller than the drone camera's ground footprint, then place a waypoint at the center of each grid cell.
+      </p>
+
+      <h4>Energy-Efficient Coverage Path Planning</h4>
+      <p>
+        Once waypoints are assigned to drones, our algorithm decides the order in which each drone will visit its waypoints to minimize the drone's energy expenditure during the mission. Our algorithm generates energy-efficient coverage paths that account for the energy costs of straight-line flight, turns, and flying in wind.
+      </p>
+      <figure class="db-figure">
+        <img src="images/drone_behavior/two_drone_calm_tours.png" alt="Energy-efficient flight paths for two drones on Lantern Farm and Saint Paul Farm." />
+        <figcaption>
+          Energy-efficient flight paths for two drones on Lantern Farm (left) and Saint Paul Farm (right), optimized for conditions with no wind using our energy-efficient coverage path planning algorithm. Waypoints were assigned to drones according to our load balancing approach.
+        </figcaption>
+      </figure>
+      <figure class="db-figure">
+        <img src="images/drone_behavior/gtsp_formulation.jpg" alt="GTSP formulation of the energy-efficient coverage path planning algorithm." />
+        <figcaption>
+          The energy-efficient coverage path planning algorithm formulated as a generalized traveling salesman (GTSP) problem. Each cluster contains GTSP nodes which represent flying from the original node to each of its adjacent nodes, allowing the path cost to model the energy of straight-line flight, turns, and wind.
+        </figcaption>
+      </figure>
+
+      <h4>Deer Shepherding</h4>
+      <p>
+        Because the shepherding drones only know where deer are located if they are within the drones' line of sight, we need a way to represent their belief states&mdash;what they believe to be true about the world. When a deer is detected in a grid cell, the value of that cell is set to the probability of the computer vision model being correct. If the drones look away from a grid cell where they had detected a deer, then the deer probability value assigned to that grid cell diffuses slightly to the neighboring cells for every time step that the cell is unobserved. This embeds memory into their belief state so that they remember that an area where a deer was recently observed has some probability to still contain a deer.
+      </p>
+      <p>
+        Our approach uses multi-agent Deep-Q learning to train the shepherding policy used by all drones. We use a centralized learning architecture in which all shepherding drones update a single learned policy during training, with fully decentralized execution where each drone has its own copy of the policy.
+      </p>
+      <figure class="db-figure db-rollout">
+        <img src="images/drone_behavior/shepherding_rollout.gif" alt="A simulation rollout of drones shepherding deer." />
+        <figcaption>A simulation rollout of drones shepherding deer.</figcaption>
+      </figure>
+
+      <div class="db-training-block">
+        <div class="db-training-block__header">
+          <h4>Shepherding Algorithm Training Status</h4>
+          <span class="training-indicator" aria-live="polite">
+            <span class="training-indicator__orbit">
+              <span class="training-indicator__dot"></span>
+            </span>
+            Training
+          </span>
+        </div>
+        <p>
+          The shepherding algorithm is still training and improving. Shepherding training metrics across 1.142 billion environmental steps are shown below. The vertical dotted lines indicate when we interrupted training to adjust parameters and reward weights before resuming where it left off.
+        </p>
+        <figure class="db-figure">
+          <img src="images/drone_behavior/training_metrics.png" alt="Shepherding training metrics across 1.142 billion environmental steps." />
+        </figure>
+      </div>
+
+      <p>If you're interested in learning the details of our implementation, please <a href="contact.html">get in touch with us</a>!</p>
+    </div>
+  </section>
+
+  <!-- Publication -->
+  <div class="box">
+    <p class="db-prev-paper-note">
+      Note: The paper below is from the previous year. We are working on our next publication.
+    </p>
+	<section class="paper-section">
+		<div class="paper-content">
+
+		<!-- Left: Static thumbnail + download -->
+		<div class="paper-preview">
+			<a href="papers/UAV_Coverage_Path_Planning_for_Autonomous_Deer_Detection_in_the_Wild.pdf" target="_blank" download>
+			<img src="images/papers/ACO.png"
+				alt="First page of ACO-Driven Path Coverage paper"
+				class="paper-thumb">
+			</a>
+			<p>
+			<a href="papers/UAV_Coverage_Path_Planning_for_Autonomous_Deer_Detection_in_the_Wild.pdf" target="_blank" download class="download-btn">
+				Download PDF
+			</a>
+			</p>
+		</div>
+
+		<!-- Right: Title, venue, and citation -->
+		<div class="paper-info">
+			<h2>UAV Coverage Path Planning for Autonomous Deer Detection in the Wild Driven by Ant Colony Optimization</h2>
+			<p class="venue">
+			Workshop: <a href="https://dartmouthrobotics.github.io/icra-2025-robots-wild/papers"
+						target="_blank" rel="noopener">
+				Robots in the Wild
+			</a>, ICRA 2025
+			</p>
+
+			<div class="citation-container">
+			<button class="copy-btn" onclick="copyBibtex(this)">Copy BibTeX</button>
+			<textarea class="bibtex" readonly>
+	@inproceedings{Jerez2025ACO,
+		title     = {UAV Coverage Path Planning for Autonomous Deer Detection in the Wild Driven by Ant Colony Optimization},
+		author    = {Mario Jerez and Khoi Duong and Jack Swanberg and Horoom Bula and Ebasa Temesgen and Maria Gini},
+		booktitle = {Robots in the Wild Workshop, ICRA},
+		year      = {2025},
+		url       = {https://dartmouthrobotics.github.io/icra-2025-robots-wild/papers}
+	}
+			</textarea>
+			</div>
+		</div>
+
+		</div>
+	</section>
+  </div>
+
+  <!-- Meet the Team (moved to bottom) -->
+  <section class="container">
+    <h3>Meet the Team</h3>
+    <section id="team-leads-section">
+      <div class="box features-grid">
+        <!-- Mario Jerez -->
+        <div class="feature cnt-block">
+          <figure>
+            <img src="images/teams/path_planning/Mario_Jerez.jpg" alt="Mario Jerez" class="team-photo">
+          </figure>
+          <h3>Mario Jerez</h3>
+          <p>PhD Student</p>
+          <p>Computer Science</p>
+          <p><a href="mailto:jerez005@umn.edu" class="email-link">jerez005@umn.edu</a></p>
+          <ul class="follow-us">
+            <li><a href="https://www.linkedin.com/in/mario-jerez/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="https://github.com/mariojerez" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+            <li><a href="https://scholar.google.com/citations?user=tDNRp-YAAAAJ&hl=en&oi=sra" target="_blank" class="icon brands fa-google"><span class="label">Google Scholar</span></a></li>
+          </ul>
+        </div>
+        <!-- Ebasa Temesgen -->
+        <div class="feature cnt-block">
+          <figure>
+            <img src="images/teams/path_planning/Ebasa.png" alt="Ebasa Temesgen" class="team-photo">
+          </figure>
+          <h3>Ebasa Temesgen</h3>
+          <p>PhD Candidate</p>
+          <p>Computer Science</p>
+          <p><a href="mailto:temes021@umn.edu" class="email-link">temes021@umn.edu</a></p>
+          <ul class="follow-us">
+            <li><a href="https://www.linkedin.com/in/ebasa-temesgen-510709192/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="https://github.com/ebasatemesgen" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+          </ul>
+        </div>
+        <!-- Greta Brown -->
+        <div class="feature cnt-block">
+          <figure>
+            <img src="images/teams/path_planning/Greta_Brown.jpg" alt="Greta Brown" class="team-photo">
+          </figure>
+          <h3>Greta Brown</h3>
+          <p>Undergraduate</p>
+          <p>Computer Science</p>
+          <p><a href="mailto:brow6802@umn.edu" class="email-link">brow6802@umn.edu</a></p>
+        </div>
+        <!-- Khoi Duong -->
+        <div class="feature cnt-block">
+          <figure>
+            <img src="images/teams/path_planning/Khoi_Duong.jpg" alt="Khoi Duong" class="team-photo">
+          </figure>
+          <h3>Khoi Duong</h3>
+          <p>Undergraduate</p>
+          <p>Computer Science</p>
+          <p><a href="mailto:duong245@umn.edu" class="email-link">duong245@umn.edu</a></p>
+          <ul class="follow-us">
+            <li><a href="https://github.com/generic-placeholder-name" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+            <li><a href="https://www.linkedin.com/in/khoi-duong-1177b92a9/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+          </ul>
+        </div>
+        <!-- Serena Bovee -->
+        <div class="feature cnt-block">
+          <figure>
+            <img src="images/teams/nopic.webp" alt="Serena Bovee" class="team-photo">
+          </figure>
+          <h3>Serena Bovee</h3>
+          <p>Undergraduate</p>
+          <p>Sociology</p>
+          <p><a href="mailto:dresbalo@umn.edu" class="email-link">dresbalo@umn.edu</a></p>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="icons">
+      <!--<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>-->
+      <li><a href="https://nextgenai.umn.edu/team" class="icon brands fa-google"><span class="label">Lab Page</span></a></li>
+      <li><a href="https://www.youtube.com/watch?v=ey3nkC1Hffc" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
+    </ul>
+    <ul class="copyright">
+      <li>&copy; FarmGuard, Edited by Melody Washington. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<!-- BibTeX Copy Functionality -->
+	<script>
+
+	// Autosize textarea to fit its content on load
+	window.addEventListener('DOMContentLoaded', () => {
+		document.querySelectorAll('.bibtex').forEach(ta => {
+		ta.style.height = 'auto';
+		ta.style.height = ta.scrollHeight + 'px';
+		});
+	});
+
+
+	function copyBibtex(btn) {
+		const ta = btn.parentNode.querySelector('.bibtex');
+		ta.select();
+		document.execCommand('copy');
+		btn.textContent = 'Copied!';
+		setTimeout(() => btn.textContent = 'Copy BibTeX', 1500);
+	}
+	</script>
+</body>
+</html>
