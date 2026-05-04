@@ -25,7 +25,7 @@
 					<ul>
 						<li><a href="hardware.html">Hardware Team</a></li>
 						<li><a href="computer_vision.html">Computer Vision Team</a></li>
-						<li><a href="path_planning.html">Path Planning Team</a></li>
+						<li><a href="drone_behavior.html">Drone Behavior Team</a></li>
 						<!-- <li><a href="collab.html">Project Management Team</a></li> -->
 					</ul>
 				</li>
@@ -53,10 +53,64 @@
 			<header class="major">
 				<h1>Introducing FarmGuard's Multi-Robot Deer Deterrence System</h1>
 				<p>
-				  Developed by an award-winning team from Gini's Next Generation Robotics Lab at the University of Minnesota, FarmGuard was recognized for its innovative approach to reducing deer intrusion in agricultural fields. Our system combines hardware, computer vision, and path planning to effectively patrol and protect farmlands in collaboration with a local farmer.
+				  Developed by an award-winning team from Gini's Next Generation Robotics Lab at the University of Minnesota, FarmGuard was recognized for its innovative approach to reducing deer intrusion in agricultural fields. Our system combines hardware, computer vision, and path planning to effectively patrol and protect farmlands in collaboration with local farmers.
 				</p>
 			  </header>			  
-			<span class="image featured"><img src="images/background_images/group_pic_1.jpg" alt="FarmGuard Team Picture" /></span>
+			<style>
+				.team-slideshow {
+					position: relative;
+					width: 100%;
+					padding-top: 56.25%;
+					overflow: hidden;
+					border-radius: 6px;
+				}
+				.team-slideshow__slide {
+					position: absolute;
+					inset: 0;
+					opacity: 0;
+					animation: team-slideshow-fade 12s infinite;
+				}
+				.team-slideshow__slide img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					display: block;
+				}
+				.team-slideshow__slide:nth-child(1) { animation-delay: 0s; }
+				.team-slideshow__slide:nth-child(2) { animation-delay: 6s; }
+				.team-slideshow__year {
+					position: absolute;
+					bottom: 1rem;
+					right: 1.25rem;
+					padding: 0.35em 0.85em;
+					background: rgba(0, 0, 0, 0.55);
+					color: #fff;
+					font-weight: 700;
+					font-size: 1.15rem;
+					border-radius: 4px;
+					letter-spacing: 0.05em;
+					backdrop-filter: blur(2px);
+				}
+				@keyframes team-slideshow-fade {
+					0%   { opacity: 0; }
+					4%   { opacity: 1; }
+					46%  { opacity: 1; }
+					54%  { opacity: 0; }
+					100% { opacity: 0; }
+				}
+			</style>
+			<span class="image featured">
+				<div class="team-slideshow" aria-label="FarmGuard team photos by year">
+					<div class="team-slideshow__slide">
+						<img src="images/teams/year_photos/2026.jpg" alt="FarmGuard team photo 2026" />
+						<span class="team-slideshow__year">2026</span>
+					</div>
+					<div class="team-slideshow__slide">
+						<img src="images/teams/year_photos/2025.jpg" alt="FarmGuard team photo 2025" />
+						<span class="team-slideshow__year">2025</span>
+					</div>
+				</div>
+			</span>
 		</section>
 	
 		<!-- Awards -->
@@ -84,33 +138,98 @@
 			</div>
 		  </section>					  
 
+		<!-- Shepherding Training Status -->
+		<style>
+			.training-indicator {
+				position: relative;
+				display: inline-flex;
+				align-items: center;
+				gap: 0.6rem;
+				font-weight: 600;
+				color: #15803d;
+			}
+			.training-indicator__orbit {
+				position: relative;
+				width: 1.5rem;
+				height: 1.5rem;
+			}
+			.training-indicator__orbit::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				border-radius: 9999px;
+				border: 2px solid rgba(34, 197, 94, 0.25);
+			}
+			.training-indicator__dot {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0.5rem;
+				height: 0.5rem;
+				margin: -0.25rem 0 0 -0.25rem;
+				background: #22c55e;
+				border-radius: 9999px;
+				box-shadow: 0 0 8px rgba(34, 197, 94, 0.85);
+				animation: training-orbit 1.4s linear infinite;
+			}
+			@keyframes training-orbit {
+				from { transform: rotate(0deg) translate(0.6875rem, 0); }
+				to   { transform: rotate(360deg) translate(0.6875rem, 0); }
+			}
+			.training-status__caption {
+				color: #4b5563;
+				font-size: 0.95rem;
+				margin-top: 0.75rem;
+			}
+			.training-status__img {
+				margin-top: 1.25rem;
+				width: 100%;
+				height: auto;
+				border-radius: 0.75rem;
+				box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+			}
+		</style>
+		<section id="training-status" class="my-12">
+			<div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-2xl p-8 border border-gray-200">
+				<div class="flex items-center justify-between flex-wrap gap-4 mb-4">
+					<h2 class="text-3xl font-bold">Shepherding Algorithm Training Status</h2>
+					<span class="training-indicator" aria-live="polite">
+						<span class="training-indicator__orbit">
+							<span class="training-indicator__dot"></span>
+						</span>
+						Training
+					</span>
+				</div>
+				<p class="training-status__caption">
+					The shepherding algorithm is still training and improving. Shepherding training metrics across 1.142 billion environmental steps are shown below. The vertical dotted lines indicate when we interrupted training to adjust parameters and reward weights before resuming where it left off.
+				</p>
+				<img class="training-status__img" src="images/drone_behavior/training_metrics.png" alt="Shepherding training metrics across 1.142 billion environmental steps." />
+			</div>
+		</section>
+
 		<!-- Team Overviews -->
 		<section id="Teams" class="timeline-alternate">
 			<div class="timeline-renamed">
 
-				<!-- Path Planning Team -->
+				<!-- Drone Behavior Team -->
 				<div class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type1">
 					<div class="timeline-renamed__event__date">
-						Path Planning Team
+						Drone Behavior Team
 					</div>
 					<div class="timeline-renamed__event__content">
 						<div class="timeline-renamed__event__title">
-							Optimal Coverage Algorithms
+							Energy-Efficient Coverage &amp; Deer Shepherding
 						</div>
 						<div class="timeline-renamed__event__description">
 
 							<p>
-								The Path Planning Team develops and implements algorithms that generate efficient flight paths for our UAVs.
-								By modeling the farm as a network of valid waypoints and applying energy-aware heuristics, they ensure full area coverage
-								while avoiding obstacles.
+								We develop two algorithms that drive our drones: an energy-efficient coverage path planner that decides the order in which each drone visits its waypoints to minimize battery expenditure, and a Deep-Q-learning shepherding policy that repels invading deer from the protected area.
 							</p>
-							<!-- <a href="/teams/path-planning" class="team-button">Learn more</a>
-							<img src="images/background_images/group_pic.jpg" alt="UAV path planning visualization" class="team-image" /> -->
 
 							<!-- image-as-button -->
-							<a href="path_planning.html" class="team-image-button">
-								<img src="images/background_images/group_pic.jpg"
-									 alt="UAV path planning visualization">
+							<a href="drone_behavior.html" class="team-image-button">
+								<img src="images/drone_behavior/system_architecture.jpg"
+									 alt="System architecture for FarmGuard's drone behavior pipeline">
 								<div class="overlay">Learn more</div>
 							</a>
 						</div>
@@ -228,7 +347,7 @@
 			</video> -->
 			<iframe
 				width="90%" height="80%"
-				src="https://www.youtube.com/embed/fvAXqBc9MFc"
+				src="https://www.youtube.com/embed/j-zw2Tnq5Ts"
 				frameborder="0"
 				allow="autoplay; encrypted-media"
 				allowfullscreen>
@@ -376,7 +495,7 @@
 						/>
 						<h3 class="mt-6 text-xl font-bold text-gray-900">Ebasa Temesgen</h3>
 						<p class="text-gray-700 font-light mb-4">
-							Team Lead &amp; Multi-Robot Coordination Lead
+							Team Lead &amp; Multi-Robot Coordination Subteam Lead (2025)
 						</p>
 						<div class="flex space-x-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
 							<a
@@ -414,7 +533,7 @@
 						/>
 						<h3 class="mt-6 text-xl font-bold text-gray-900">Mario Jerez</h3>
 						<p class="text-gray-700 font-light mb-4">
-							Project Manager &amp; Path Planning Team Lead
+							Team Lead, Deer Shepherding &amp; Path Planning Subteam Lead (2025&ndash;26)
 						</p>
 						<div class="flex space-x-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
 							<a
@@ -454,7 +573,7 @@
 						/>
 						<h3 class="mt-6 text-xl font-bold text-gray-900">Greta Brown</h3>
 						<p class="text-gray-700 font-light mb-4">
-							Assistant Project Manager & Video Editor
+							Videographer &amp; Video Editor (2025&ndash;26)
 						</p>
 						<div class="flex space-x-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
 							<a
@@ -486,7 +605,7 @@
 								class="h-64 w-auto object-cover rounded-2xl drop-shadow-md hover:drop-shadow-xl transition duration-200"
 						/>
 						<h3 class="mt-6 text-xl font-bold text-gray-900">Sree Ganesh Lalitaditya</h3>
-						<p class="text-gray-700 font-light mb-4">Computer Vision Team Lead</p>
+						<p class="text-gray-700 font-light mb-4">Computer Vision Subteam Lead (2025)</p>
 						<div class="flex space-x-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
 							<a
 									href="https://www.linkedin.com/in/lalitaditya-divakarla/"
@@ -508,7 +627,7 @@
 								class="h-64 w-auto object-cover rounded-2xl drop-shadow-md hover:drop-shadow-xl transition duration-200"
 						/>
 						<h3 class="mt-6 text-xl font-bold text-gray-900">Graham Wilson</h3>
-						<p class="text-gray-700 font-light mb-4">Hardware &amp; Drone Integration Lead</p>
+						<p class="text-gray-700 font-light mb-4">Hardware Subteam Lead (2025&ndash;26)</p>
 						<div class="flex space-x-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
 							<a
 									href="https://www.linkedin.com/in/graham-wilson-7066b72a6/"
@@ -529,7 +648,7 @@
 								class="h-64 w-auto object-cover rounded-2xl drop-shadow-md hover:drop-shadow-xl transition duration-200"
 						/>
 						<h3 class="mt-6 text-xl font-bold text-gray-900">Melody Washington</h3>
-						<p class="text-gray-700 font-light mb-4">Website Lead</p>
+						<p class="text-gray-700 font-light mb-4">App Development &amp; Website Subteam Lead (2025&ndash;26)</p>
 						<div class="flex space-x-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
 							<a
 									href="https://www.linkedin.com/in/melody-washington/"
